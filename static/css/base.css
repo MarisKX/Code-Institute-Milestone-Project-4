@@ -26,6 +26,10 @@ header {
     background-color: rgb(250, 129, 0) !important;
 }
 
+.background-black-orange {
+    background-color: rgb(112, 58, 0) !important;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -44,6 +48,16 @@ header {
     font-weight: bold;
     font-size: 2.8rem;
     text-shadow: 2px 2px rgb(255, 255, 255);
+}
+
+.cta-text {
+    text-shadow: 1px 1px 5px rgb(250, 129, 0);
+}
+
+.cta-btn {
+    width: 60%;
+    height: 60px;
+    font-size: 1.8rem;
 }
 
 /* -------------------------------- Media Queries */
