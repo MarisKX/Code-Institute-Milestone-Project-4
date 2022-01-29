@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Cookie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Cookie&family=Domine:wght@500&display=swap');
+
+
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: #555;
+    font-family: 'Domine', serif;
+}
+
+header {
+    background-color: rgb(250, 129, 0);
+}
+
+.text-black-orange {
+    color: rgb(112, 58, 0) !important;
+}
+
+.background-orange {
+    background-color: rgb(250, 129, 0) !important;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.main-logo {
+    width: fit-content;
+}
+
+.logo-decorator {
+    font-family: 'Cookie', cursive;
+    font-weight: bold;
+    font-size: 2.8rem;
+    text-shadow: 2px 2px rgb(255, 255, 255);
+}
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+      max-width: 80%;
+    }
+}
+  
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+  
+    .header-container {
+        padding-top: 164px;
+    }
+}
