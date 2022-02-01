@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container h-100">
+    <div class="container main-container h-100">
         <div class="row">
             <div class="col-7 col-md-6 my-5 ms-4">
                 <h1 class="display-3 text-black-orange cta-text">
@@ -22,7 +22,7 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-8 my-5 mx-auto">
-                <a href="" class="btn btn-outline-light cta-btn" data-mdb-ripple-color="light">Find Yours now</a>
+                <a href="{% url 'products' %}" class="btn btn-outline-light cta-btn" data-mdb-ripple-color="light">Find Yours now</a>
             </div>
         </div>
     </div>

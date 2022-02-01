@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}Products{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="row main-container h-100">
+    <div class="col-sm-12 col-lg-3 col-xl-2 main-side-navbar background-orange h-100">
+        Side navbar
+    </div>
+    <div class="col-sm-12 col-lg-9 col-xl-10 content-area">
+        
+        {% for product in products %}
+        <div class="card mb-3" style="max-width: 800px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                {% if product.image %}
+                    <a href="">
+                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </a>
+                {% else %}
+                    <a href="">
+                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    </a>
+                {% endif %}
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <p class="card-text">{{ product.manufacturer.display_name }}</p>
+                  <p class="card-text">{{ product.size }}</p>
+                  <p class="card-text">{{ product.load_index }}</p>
+                  <p class="card-text">{{ product.speed_index }}</p>
+                  <h4 class="card-title">{{ product.price }} Eur</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+    
+    </div>  
+</div>
+    
+{% endblock %}
