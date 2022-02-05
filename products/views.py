@@ -6,7 +6,7 @@ from .models import Product
 def all_products(request):
     """ A view to return the products page """
 
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('name', 'price')
 
     context = {
         'products': products,

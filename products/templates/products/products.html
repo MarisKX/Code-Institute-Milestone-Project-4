@@ -13,33 +13,31 @@
 
 {% block content %}
 <div class="row main-container h-100">
-    <div class="col-sm-12 col-lg-3 col-xl-2 main-side-navbar background-orange h-100">
-        Side navbar
-    </div>
+    {% include 'includes/side-nav-desktop.html' %}
     <div class="col-sm-12 col-lg-9 col-xl-10 content-area">
         
         {% for product in products %}
-        <div class="card mb-3" style="max-width: 800px;">
+        <div class="card mb-3 mt-3 pt-3 pb-3 px-3 product-card">
             <div class="row g-0">
               <div class="col-md-4">
                 {% if product.image %}
-                    <a href="">
-                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <a class="product-image-link" href="">
+                        <img class="card-img-top img-fluid product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
                     </a>
                 {% else %}
-                    <a href="">
-                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    <a class="product-image-link" href="">
+                        <img class="card-img-top img-fluid product-image" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                     </a>
                 {% endif %}
               </div>
-              <div class="col-md-8">
+              <div class="col-md-8 px-3">
                 <div class="card-body">
-                  <h5 class="card-title">{{ product.name }}</h5>
+                  <h3 class="card-title"><strong>{{ product.name }}</strong></h3>
                   <p class="card-text">{{ product.manufacturer.display_name }}</p>
                   <p class="card-text">{{ product.size }}</p>
                   <p class="card-text">{{ product.load_index }}</p>
                   <p class="card-text">{{ product.speed_index }}</p>
-                  <h4 class="card-title">{{ product.price }} Eur</h4>
+                  <h4 class="card-title"><strong>{{ product.price }} Eur</strong></h4>
                 </div>
               </div>
             </div>
