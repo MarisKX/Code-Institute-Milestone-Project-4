@@ -1,12 +1,12 @@
 from django.contrib import admin
-from .models import Product, Category, Manufacturer
+from .models import Product, Category, Manufacturer, TyreSize
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'category',
         'ean',
-        'size_code',
         'manufacturer',
+        'size',
         'name',
         'price',
         'image',
@@ -26,6 +26,15 @@ class ManufacturerAdmin(admin.ModelAdmin):
         'name',
     )
 
+class TyreSizeAdmin(admin.ModelAdmin):
+    list_display = (
+        'full_size_code',
+        'full_size_display',
+    )
+
+    ordering = ('rim_size', 'width')
+
+admin.site.register(TyreSize, TyreSizeAdmin)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Manufacturer, ManufacturerAdmin)

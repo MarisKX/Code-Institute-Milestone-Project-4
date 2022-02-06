@@ -1,14 +1,47 @@
 <div class="col-sm-12 col-lg-3 col-xl-2 main-side-navbar background-orange h-100">
-    <div class="row">
-        <form class="sidenav-search-form my-3" method="GET" action="{% url 'products' %}">
+    <div class="row dropdown-search-top">
+        <h5 class="ms-5">Search all products</h5>
+        <form class="col sidenav-search-form my-3" method="GET" action="{% url 'products' %}">
             <div class="input-group">
-                <div class="form-outline">
-                    <input id="sidenav-searchbar" class="form-control background-white text-black-orange rounded-0" type="text" name="q" placeholder="Search"/>
+                <input id="sidenav-searchbar" class="form-control background-white text-black-orange rounded-0" type="text" name="q" placeholder="Search"/>
+                <div class="input-group-append">
+                    <button type="button" class="btn background-white rounded-0">
+                        <i class="icon fas fa-search"></i>
+                    </button>
                 </div>
-                <button type="button" class="btn background-white rounded-0">
-                    <i class="fas fa-search"></i>
-                </button>
             </div>
         </form>
+    </div>
+    <h5 class="ms-5">Select search criteria</h5>
+    <h6 class="mt-4 ms-3">Season:</h6>
+    <div class="row dropdown-search">
+        <div class="col-12">
+            <select class="select">
+                <option value="all">Select All</option>
+                {% for category in categories %}
+                    <option value="{{ category.name }}">{{ category.display_name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <h6 class="mt-4 ms-3">Size:</h6>
+    <div class="row dropdown-search">
+        <div class="col-12">
+            <select class="select" multiple data-mdb-placeholder="Select Brand" data-mdb-visible-options="5">
+                {% for size in sizes %}
+                    <option value="{{ size.full_size_code }}">{{ size.full_size_display }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <h6 class="mt-4 ms-3">Brand:</h6>
+    <div class="row dropdown-search">
+        <div class="col-12">
+            <select class="select" multiple data-mdb-placeholder="Select Brand" data-mdb-visible-options="5">
+                {% for manufacturer in manufacturers %}
+                    <option value="{{ manufacturer.name }}">{{ manufacturer.display_name}}</option>
+                {% endfor %}
+            </select>
+        </div>
     </div>
 </div>
