@@ -120,6 +120,11 @@ header {
     margin: auto 0;
 }
 
+.brand-logo-small {
+    max-height: 35px;
+    width: auto;
+}
+
 
 /* Fixed sidebar for desktop */
 .main-side-navbar {

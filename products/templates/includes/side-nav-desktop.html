@@ -1,6 +1,6 @@
 <div class="col-sm-12 col-lg-3 col-xl-2 main-side-navbar background-orange h-100">
     <div class="row dropdown-search-top">
-        <h5 class="ms-5">Search all products</h5>
+        <h5 class="ms-5">Search in all products</h5>
         <form class="col sidenav-search-form my-3" method="GET" action="{% url 'products' %}">
             <div class="input-group">
                 <input id="sidenav-searchbar" class="form-control background-white text-black-orange rounded-0" type="text" name="q" placeholder="Search"/>
@@ -44,4 +44,12 @@
             </select>
         </div>
     </div>
+    <div class="row dropdown-search mx-3 mt-4">
+        <div class="col-6 offset-4">
+            <button type="button" class="btn background-white rounded-0" style="">
+                Filter
+            </button>
+        </div>
+    </div>
+    
 </div>

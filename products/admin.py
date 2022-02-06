@@ -32,7 +32,7 @@ class TyreSizeAdmin(admin.ModelAdmin):
         'full_size_display',
     )
 
-    ordering = ('rim_size', 'width')
+    ordering = ('rim_size', 'width', 'heigth')
 
 admin.site.register(TyreSize, TyreSizeAdmin)
 admin.site.register(Product, ProductAdmin)
