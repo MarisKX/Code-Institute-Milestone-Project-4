@@ -42,7 +42,6 @@ def all_products(request):
             query_filter_season = request.GET['season']
             query_filter_size = request.GET['size']
 
-    
             queries = Q(
                 category__name__icontains=query_filter_season) & Q(
                 size__full_size_code__icontains=query_filter_size)
@@ -53,9 +52,7 @@ def all_products(request):
             query_filter_size = request.GET['size']
             query_filter_brand = request.GET.getlist('brand')
             print(query_filter_brand)
-
-
-    
+  
             queries = Q(
                 category__name__icontains=query_filter_season) & Q(
                 size__full_size_code__icontains=query_filter_size)
