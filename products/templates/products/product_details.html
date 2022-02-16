@@ -31,7 +31,16 @@
               </div>
               <div class="col-md-8 px-3">
                 <div class="card-body">
-                  <h3 class="card-title"><strong>{{ product.name }}</strong></h3>
+                  <h3 class="card-title">
+                    <strong>
+                      {{ product.name }}
+                        {% if product.category.name == "winter_tyre" %}
+                          <i class="snow-blue fa-solid fa-snowflake"></i>
+                        {% else %}
+                          <i class="sun-yellow fa-solid fa-sun"></i>
+                        {% endif %}
+                    </strong>
+                  </h3>
                   {% if product.manufacturer.image %}
                   <p class="card-text"><img class="brand-logo-small" src="{{ product.manufacturer.image.url }}" alt="{{ product.manufacturer }}"></p>
                   {% else %}
@@ -67,7 +76,16 @@
               </div>
               <div class="col-md-8 px-3">
                 <div class="card-body">
-                  <h3 class="card-title"><strong>{{ product.name }}</strong></h3>
+                  <h3 class="card-title">
+                    <strong>
+                      {{ product.name }}
+                        {% if product.category.name == "winter_tyre" %}
+                          <i class="snow-blue fa-solid fa-snowflake"></i>
+                        {% else %}
+                          <i class="sun-yellow fa-solid fa-sun"></i>
+                        {% endif %}
+                    </strong>
+                  </h3>
                   {% if product.manufacturer.image %}
                   <p class="card-text mt-4"><img class="brand-logo-small" src="{{ product.manufacturer.image.url }}" alt="{{ product.manufacturer }}"></p>
                   {% else %}
