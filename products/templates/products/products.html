@@ -21,7 +21,7 @@
             <div class="row g-0">
               <div class="col-md-4">
                 {% if product.image %}
-                    <a class="product-image-link" href="">
+                    <a class="product-image-link" href="{% url 'product_details' product.ean_code %}">
                         <img class="card-img-top img-fluid product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
                     </a>
                 {% else %}
@@ -34,14 +34,12 @@
                 <div class="card-body">
                   <h3 class="card-title"><strong>{{ product.name }}</strong></h3>
                   {% if product.manufacturer.image %}
-                  <p class="card-text"><img class="brand-logo-small" src="{{ product.manufacturer.image.url }}" alt="{{ product.manufacturer }}"></p>
+                  <p class="card-text mt-4"><img class="brand-logo-small" src="{{ product.manufacturer.image.url }}" alt="{{ product.manufacturer }}"></p>
                   {% else %}
-                  <p class="card-text">{{ product.manufacturer.display_name }}</p>
+                  <p class="card-text mt-4">{{ product.manufacturer.display_name }}</p>
                   {% endif %}
-                  <p class="card-text">{{ product.size.full_size_display }}</p>
-                  <p class="card-text">{{ product.load_index }}</p>
-                  <p class="card-text">{{ product.speed_index }}</p>
-                  <h4 class="card-title"><strong>{{ product.price }} Eur</strong></h4>
+                  <h4 class="card-text mt-4">{{ product.size.full_size_display }}</h4>
+                  <h4 class="card-title mt-4"><strong>{{ product.price }} Eur</strong></h4>
                 </div>
               </div>
             </div>

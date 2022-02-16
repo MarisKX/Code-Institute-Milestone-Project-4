@@ -1,55 +1,64 @@
 <div class="col-sm-12 col-lg-3 col-xl-2 main-side-navbar background-orange h-100">
+    <div class="row dropdown-search mx-3 my-5">
+        <div class="col-8 offset-2">
+            <a href="{% url 'products' %}" class="btn background-white nav-btn rounded-0">
+                Show All Products
+            </a>
+        </div>
+    </div>
     <div class="row dropdown-search-top">
         <h5 class="ms-5">Search in all products</h5>
         <form class="col sidenav-search-form my-3" method="GET" action="{% url 'products' %}">
             <div class="input-group">
                 <input id="sidenav-searchbar" class="form-control background-white text-black-orange rounded-0" type="text" name="q" placeholder="Search"/>
                 <div class="input-group-append">
-                    <button type="button" class="btn background-white rounded-0">
+                    <button type="submit" class="btn background-white rounded-0 form-control">
                         <i class="icon fas fa-search"></i>
                     </button>
                 </div>
             </div>
         </form>
     </div>
-    <h5 class="ms-5">Select search criteria</h5>
-    <h6 class="mt-4 ms-3">Season:</h6>
-    <div class="row dropdown-search">
-        <div class="col-12">
-            <select class="select">
-                <option value="all">Select All</option>
-                {% for category in categories %}
-                    <option value="{{ category.name }}">{{ category.display_name}}</option>
-                {% endfor %}
-            </select>
+    <form method="GET" action="{% url 'products' %}">
+        <h5 class="ms-5">Select search criteria</h5>
+        <h6 class="mt-4 ms-3">Season:</h6>
+        <div class="row dropdown-search">
+            <div class="col-12">
+                <select class="select" name="season">
+                    <option value="{{ categories.name }}" default>Select All</option>
+                    {% for category in categories %}
+                        <option value="{{ category.name }}">{{ category.display_name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
         </div>
-    </div>
-    <h6 class="mt-4 ms-3">Size:</h6>
-    <div class="row dropdown-search">
-        <div class="col-12">
-            <select class="select" multiple data-mdb-placeholder="Select Brand" data-mdb-visible-options="5">
-                {% for size in sizes %}
-                    <option value="{{ size.full_size_code }}">{{ size.full_size_display }}</option>
-                {% endfor %}
-            </select>
+        <h6 class="mt-4 ms-3">Size:</h6>
+        <div class="row dropdown-search">
+            <div class="col-12">
+                <select class="select" data-mdb-placeholder="Select Size" data-mdb-visible-options="6" name="size">
+                    <option value="{{ sizes.full_size_code }}" default>Select All</option>
+                    {% for size in sizes %}
+                        <option value="{{ size.full_size_code }}">{{ size.full_size_display }}</option>
+                    {% endfor %}
+                </select>
+            </div>
         </div>
-    </div>
-    <h6 class="mt-4 ms-3">Brand:</h6>
-    <div class="row dropdown-search">
-        <div class="col-12">
-            <select class="select" multiple data-mdb-placeholder="Select Brand" data-mdb-visible-options="5">
-                {% for manufacturer in manufacturers %}
-                    <option value="{{ manufacturer.name }}">{{ manufacturer.display_name}}</option>
-                {% endfor %}
-            </select>
+        <h6 class="mt-4 ms-3">Brand:</h6>
+        <div class="row dropdown-search">
+            <div class="col-12">
+                <select class="select" multiple data-mdb-placeholder="Select Brand" data-mdb-visible-options="6" name="brand">
+                    {% for manufacturer in manufacturers %}
+                        <option value="{{ manufacturer.name }}">{{ manufacturer.display_name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
         </div>
-    </div>
-    <div class="row dropdown-search mx-3 mt-4">
-        <div class="col-6 offset-4">
-            <button type="button" class="btn background-white rounded-0" style="">
-                Filter
-            </button>
+        <div class="row dropdown-search mx-3 mt-4">
+            <div class="col-6 offset-4">
+                <button type="submit" class="btn background-white rounded-0 nav-btn">
+                    Filter
+                </button>
+            </div>
         </div>
-    </div>
-    
+    </form>
 </div>

@@ -37,6 +37,7 @@ class TyreSize(models.Model):
     rim_size = models.PositiveIntegerField(default=16, validators=[MinValueValidator(12), MaxValueValidator(26)])
     full_size_code = models.CharField(max_length=8, null=True, blank=True)
     full_size_display = models.CharField(max_length=10, null=True, blank=True)
+    full_size_short = models.CharField(max_length=10, null=True, blank=True)
 
 
     def __str__(self):
@@ -52,12 +53,13 @@ class TyreSize(models.Model):
         """
         self.full_size_code = str(self.width) + str(self.heigth) + "R" + str(self.rim_size)
         self.full_size_display = str(self.width) + "/" + str(self.heigth) + " R" + str(self.rim_size)
+        self.full_size_short = str(self.width) + "/" + str(self.heigth) + "R" + str(self.rim_size)
         super().save(*args, **kwargs)
 
 
 class Product(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
-    ean = models.CharField(max_length=254, null=True, blank=True)
+    ean_code = models.CharField(max_length=254, null=True, blank=True)
     size = models.ForeignKey('TyreSize', null=True, blank=True, on_delete=models.SET_NULL)
     load_index = models.CharField(max_length=254, null=True, blank=True)
     speed_index = models.CharField(max_length=254, null=True, blank=True)

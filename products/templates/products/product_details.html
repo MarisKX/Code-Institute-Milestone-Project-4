@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}{{ product.name }}{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="row main-container h-100">
+    {% include 'includes/side-nav-desktop.html' %}
+    <div class="col-sm-12 col-lg-9 col-xl-10 content-area">
+
+        <div class="card mb-3 mt-3 pt-3 pb-3 px-3 product-card-details">
+            <div class="row g-0">
+              <div class="col-md-4">
+                {% if product.image %}
+                    <a class="product-image-link" href="{{ product.image.url }}" target="_blank">
+                        <img class="card-img-top img-fluid product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </a>
+                {% else %}
+                    <a class="product-image-link" href="">
+                        <img class="card-img-top img-fluid product-image" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    </a>
+                {% endif %}
+              </div>
+              <div class="col-md-8 px-3">
+                <div class="card-body">
+                  <h3 class="card-title"><strong>{{ product.name }}</strong></h3>
+                  {% if product.manufacturer.image %}
+                  <p class="card-text"><img class="brand-logo-small" src="{{ product.manufacturer.image.url }}" alt="{{ product.manufacturer }}"></p>
+                  {% else %}
+                  <p class="card-text">{{ product.manufacturer.display_name }}</p>
+                  {% endif %}
+                  <p class="card-text">{{ product.size.full_size_display }}</p>
+                  <p class="card-text">{{ product.load_index }}</p>
+                  <p class="card-text">{{ product.speed_index }}</p>
+                  <h4 class="card-title"><strong>{{ product.price }} Eur</strong></h4>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-5">
+              <p class="card-text">{{ product.description }}</p>
+            </div> 
+          </div>
+          <div class="card mb-3 mt-3 pt-3 pb-3 px-3 product-card btn-back">
+            <h4>Other offers with size  {{ product.size.full_size_display }}</h4> 
+        </div>
+        {% for product in other_products_same_size %}
+        <div class="card mb-3 mt-3 pt-3 pb-3 px-3 product-card">
+            <div class="row g-0">
+              <div class="col-md-4">
+                {% if product.image %}
+                    <a class="product-image-link" href="{% url 'product_details' product.ean_code %}">
+                        <img class="card-img-top img-fluid product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </a>
+                {% else %}
+                    <a class="product-image-link" href="">
+                        <img class="card-img-top img-fluid product-image" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    </a>
+                {% endif %}
+              </div>
+              <div class="col-md-8 px-3">
+                <div class="card-body">
+                  <h3 class="card-title"><strong>{{ product.name }}</strong></h3>
+                  {% if product.manufacturer.image %}
+                  <p class="card-text mt-4"><img class="brand-logo-small" src="{{ product.manufacturer.image.url }}" alt="{{ product.manufacturer }}"></p>
+                  {% else %}
+                  <p class="card-text mt-4">{{ product.manufacturer.display_name }}</p>
+                  {% endif %}
+                  <h4 class="card-text mt-4">{{ product.size.full_size_display }}</h4>
+                  <h4 class="card-title mt-4"><strong>{{ product.price }} Eur</strong></h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+    
+    </div>  
+</div>
+    
+{% endblock %}

@@ -105,13 +105,24 @@ header {
 
 .product-card {
     width: 80%;
-    height: 450px;
+    height: 350px;
     margin-left: 10%;
     margin-right: 10%;
 }
 
+.product-card-details {
+    width: 80%;
+    height: 600px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.btn-back {
+    height: 45px;
+}
+
 .product-image {
-    max-height: 400px;
+    max-height: 300px;
     width: auto;
     padding-left: 10%;
 }
@@ -138,6 +149,10 @@ header {
 
 .card.mb-3 {
     background-color: white;
+}
+
+.nav-btn {
+    font-size: 0.9rem;
 }
 
 /* -------------------------------- Media Queries */

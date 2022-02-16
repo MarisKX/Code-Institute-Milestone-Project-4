@@ -4,7 +4,7 @@ from .models import Product, Category, Manufacturer, TyreSize
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'category',
-        'ean',
+        'ean_code',
         'manufacturer',
         'size',
         'name',
