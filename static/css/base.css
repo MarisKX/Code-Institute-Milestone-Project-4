@@ -34,6 +34,14 @@ header {
     background-color: white !important;
 }
 
+.sun-yellow {
+    color: #ffea00;
+}
+
+.snow-blue {
+    color: #00d5ff
+}
+
 /* from Bulma - slightly customized */
 .icon {
     align-items: center;

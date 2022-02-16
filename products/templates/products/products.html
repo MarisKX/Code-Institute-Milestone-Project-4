@@ -19,7 +19,7 @@
         {% for product in products %}
         <div class="card mb-3 mt-3 pt-3 pb-3 px-3 product-card">
             <div class="row g-0">
-              <div class="col-md-4">
+              <div class="col-md-3">
                 {% if product.image %}
                     <a class="product-image-link" href="{% url 'product_details' product.ean_code %}">
                         <img class="card-img-top img-fluid product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -30,9 +30,21 @@
                     </a>
                 {% endif %}
               </div>
+              <div class="col-md-1">
+                
+              </div>
               <div class="col-md-8 px-3">
                 <div class="card-body">
-                  <h3 class="card-title"><strong>{{ product.name }}</strong></h3>
+                  <h3 class="card-title">
+                    <strong>
+                      {{ product.name }}
+                        {% if product.category.name == "winter_tyre" %}
+                          <i class="snow-blue fa-solid fa-snowflake"></i>
+                        {% else %}
+                          <i class="sun-yellow fa-solid fa-sun"></i>
+                        {% endif %}
+                    </strong>
+                  </h3>
                   {% if product.manufacturer.image %}
                   <p class="card-text mt-4"><img class="brand-logo-small" src="{{ product.manufacturer.image.url }}" alt="{{ product.manufacturer }}"></p>
                   {% else %}
