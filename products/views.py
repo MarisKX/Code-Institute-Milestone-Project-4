@@ -21,9 +21,13 @@ def all_products(request):
 
     query_filter_brand = None
 
+    sort = None
+    direction = None
+
 
 
     if request.GET:
+        # Handles free search bar functionality
         if 'q' in request.GET:
             query_search = request.GET['q']
             if not query_search:
@@ -38,6 +42,7 @@ def all_products(request):
                 size__full_size_short__icontains=query_search)
             products = products.filter(queries)
 
+        # Handles main filtering functionality
         if 'season' in request.GET:
             query_filter_season = request.GET['season']
             query_filter_size = request.GET['size']
@@ -62,6 +67,22 @@ def all_products(request):
             print(query_brand)
             products = products.filter(queries).filter(query_brand)
 
+        # Handles sorting functionality
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            products = products.order_by(sortkey)
+
+    selected_sort_method = f'{sort}_{direction}'
+
     context = {
         'products': products,
         'categories': categories,
@@ -71,6 +92,7 @@ def all_products(request):
         'filter_term_season': query_filter_season,
         'filter_term_size': query_filter_size,
         'filter_term_brand': query_filter_brand,
+        'selected_sort_method': selected_sort_method,
     }
 
     return render(request, 'products/products.html', context)

@@ -20,8 +20,8 @@
                   
                     <ul class="dropdown-menu rounded-0" aria-labelledby="dropdownMenuLink">
                       <li><a class="dropdown-item rounded-0" href="{% url 'products' %}?sort=price&direction=asc">Price</a></li>
-                      <li><a class="dropdown-item rounded-0" href="{% url 'products' %}?sort=size&direction=asc">Size</a></li>
-                      <li><a class="dropdown-item rounded-0" href="{% url 'products' %}?sort=brand&direction=asc">Brand</a></li>
+                      <li><a class="dropdown-item rounded-0" href="{% url 'products' %}?sort=size__full_size_sort&direction=asc">Size</a></li>
+                      <li><a class="dropdown-item rounded-0" href="{% url 'products' %}?sort=manufacturer__name&direction=asc">Brand</a></li>
                     </ul>
                   </div>
             </div>

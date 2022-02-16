@@ -38,6 +38,7 @@ class TyreSize(models.Model):
     full_size_code = models.CharField(max_length=8, null=True, blank=True)
     full_size_display = models.CharField(max_length=10, null=True, blank=True)
     full_size_short = models.CharField(max_length=10, null=True, blank=True)
+    full_size_sort = models.CharField(max_length=10, null=True, blank=True)
 
 
     def __str__(self):
@@ -54,6 +55,7 @@ class TyreSize(models.Model):
         self.full_size_code = str(self.width) + str(self.heigth) + "R" + str(self.rim_size)
         self.full_size_display = str(self.width) + "/" + str(self.heigth) + " R" + str(self.rim_size)
         self.full_size_short = str(self.width) + "/" + str(self.heigth) + "R" + str(self.rim_size)
+        self.full_size_sort = str(self.rim_size) + str(self.width) + str(self.heigth)
         super().save(*args, **kwargs)
 
 
