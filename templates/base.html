@@ -79,15 +79,15 @@
                         </div>
                     </li>
                     <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'show_cart' %}">
+                        <a class="{% if total %}text-black-orange fs-5 fw-bold{% else %}text-black{% endif %} nav-link" href="{% url 'show_cart' %}">
                             <div class="text-center">
                                 <div>
                                   <i class="fas fa-shopping-bag fa-lg"></i>
                                   <span class="ms-2">
-                                    {% if grand_total %}
-                                          ${{ grand_total|floatformat:2 }}
+                                    {% if total %}
+                                          {{ total|floatformat:2 }} <i class="fas fa-euro-sign"></i>
                                       {% else %}
-                                          $0.00
+                                          0.00 <i class="fas fa-euro-sign"></i>
                                       {% endif %}
                                   </span>   
                                 </div>                           
