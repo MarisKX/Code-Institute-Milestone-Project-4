@@ -163,6 +163,21 @@ header {
     font-size: 0.9rem;
 }
 
+/* Back To Top button (btt) */
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 25px;
+    right: 50px;
+    font-size: 1.8rem;
+}
+
+.btt-link {
+    cursor: pointer;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
