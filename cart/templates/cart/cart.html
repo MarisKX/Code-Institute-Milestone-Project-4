@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}Products{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="row main-container h-100">
+    {% include 'includes/side-nav-desktop.html' %}
+    <div class="col-sm-12 col-lg-9 col-xl-10 content-area">
+        <div class="container mb-2">
+            <div class="row">
+                <div class="col">
+                    {% if bag_items %}
+                        <div class="table-responsive rounded"></div>
+                    {% else %}
+                        <p class="lead my-5 text-black-orange">Your shopping cart is empty.</p>
+                        <a href="{% url 'products' %}" class="btn background-white rounded-0 btn-lg">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="text-uppercase text-black-orange"> Return to webshop</span>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
