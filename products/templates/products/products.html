@@ -68,6 +68,25 @@
                   {% endif %}
                   <h4 class="card-text mt-4">{{ product.size.full_size_display }}</h4>
                   <h4 class="card-title mt-4"><strong>{{ product.price }} Eur</strong></h4>
+
+                  <form class="form mt-5" action="" method="POST">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col-12">
+                            <div class="form-group w-50">
+                                <div class="input-group">
+                                    <input class="form-control qty_input" type="number" name="quantity" value="4" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <input type="submit" class="btn background-orange rounded-0 text-uppercase mt-3 mx-5" value="Add to shopping cart">
+                        </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    </div>
+                  </form>
+
                 </div>
               </div>
             </div>
