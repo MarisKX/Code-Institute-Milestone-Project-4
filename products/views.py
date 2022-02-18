@@ -1,8 +1,9 @@
+from functools import reduce
+import operator
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from functools import reduce
-import operator
+from django.db.models.functions import Lower
 from .models import Product, Category, Manufacturer, TyreSize
 
 # Create your views here.
@@ -56,7 +57,6 @@ def all_products(request):
             query_filter_season = request.GET['season']
             query_filter_size = request.GET['size']
             query_filter_brand = request.GET.getlist('brand')
-            print(query_filter_brand)
   
             queries = Q(
                 category__name__icontains=query_filter_season) & Q(
@@ -64,7 +64,6 @@ def all_products(request):
             query_brand = reduce(operator.or_, (Q(
                 manufacturer__name__icontains=each_brand
                 ) for each_brand in query_filter_brand))
-            print(query_brand)
             products = products.filter(queries).filter(query_brand)
 
         # Handles sorting functionality
