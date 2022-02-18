@@ -47,14 +47,81 @@
                   <p class="card-text">{{ product.manufacturer.display_name }}</p>
                   {% endif %}
                   <p class="card-text">{{ product.size.full_size_display }}</p>
-                  <p class="card-text">{{ product.load_index }}</p>
-                  <p class="card-text">{{ product.speed_index }}</p>
                   <h4 class="card-title"><strong>{{ product.price }} Eur</strong></h4>
                 </div>
               </div>
             </div>
-            <div class="row mt-5">
-              <p class="card-text">{{ product.description }}</p>
+            <div class="product-detail-divider background-black-orange"></div>
+            <div class="row mt-5 mx-3">
+              <div class="col-sm-12 col-lg-5 px-3">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="card-text text-black-orange">EAN: </p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="card-text text-black-orange text-end"> {{ product.ean_code }}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="card-text text-black-orange">Season: </p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="card-text text-black-orange text-end"> {{ product.category.display_name }}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="card-text text-black-orange">Full Size: </p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="card-text text-black-orange text-end"> {{ product.size.full_size_display }}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="card-text text-black-orange">Width: </p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="card-text text-black-orange text-end"> {{ product.size.width }}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="card-text text-black-orange">Height: </p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="card-text text-black-orange text-end"> {{ product.size.heigth }}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="card-text text-black-orange">Rim size: </p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="card-text text-black-orange text-end"> R{{ product.size.rim_size }}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="card-text text-black-orange">Load Index: </p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="card-text text-black-orange text-end"> {{ product.load_index }}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="card-text text-black-orange">Speed Index: </p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="card-text text-black-orange text-end"> {{ product.speed_index }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-lg-6 offset-lg-1 px-3">
+                <p class="card-text">{{ product.description }}</p>
+              </div>
             </div> 
           </div>
           <div class="card mb-3 mt-3 pt-3 pb-3 px-3 product-card btn-back">
