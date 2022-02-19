@@ -90,6 +90,9 @@ TEMPLATES = [
     },
 ]
 
+# Need to store messages in session (gitpod twist)!!!
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 # This sections comes from allauth documentation!!!
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
