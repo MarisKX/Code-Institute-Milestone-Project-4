@@ -10,7 +10,6 @@ body {
     background: url('/media/iStock-1030486504-tires.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 70px);
-    color: #555;
     font-family: 'Domine', serif;
 }
 
@@ -149,6 +148,10 @@ header {
     width: 100%;
     margin-top: 20px;
 }
+
+th, td {
+    border-bottom: 1px solid #ddd;
+  }
 
 
 /* Fixed sidebar for desktop */
