@@ -33,6 +33,21 @@ header {
     background-color: white !important;
 }
 
+.background-grey {
+    background-color: rgb(194, 194, 194) !important;
+    box-shadow: none;
+}
+
+.background-grey:hover {
+    background-color: rgb(250, 129, 0) !important;
+    box-shadow: none;
+}
+
+.background-grey:disabled,
+.background-grey:focus {
+    box-shadow: none;
+}
+
 .sun-yellow {
     color: #ffea00;
 }
@@ -209,6 +224,7 @@ th, td {
         left: 0;
         z-index: 1030;
     }
+}
 
 @media (max-width: 992px) {
     .navbar-dividerline {
@@ -228,4 +244,17 @@ th, td {
         margin-left: 1%;
         margin-right: 1%;
     }
+}
+
+/* Hiding default arrows on nymber input fields */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
