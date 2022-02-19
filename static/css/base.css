@@ -191,7 +191,7 @@ th, td {
     font-size: 0.9rem;
 }
 
-/* Back To Top button (btt) */
+/* Back To Top button (btt) and update/remove */
 
 .btt-button {
     height: 42px;
@@ -202,7 +202,9 @@ th, td {
     font-size: 1.8rem;
 }
 
-.btt-link {
+.btt-link,
+.update-link,
+.remove-item {
     cursor: pointer;
 }
 

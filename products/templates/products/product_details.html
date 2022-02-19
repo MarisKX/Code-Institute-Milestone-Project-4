@@ -13,7 +13,7 @@
 
 {% block content %}
 <div class="row main-container h-100">
-    {% include 'includes/side-nav-desktop.html' %}
+  {% include 'products/includes/side-nav-desktop.html' %}
     <div class="col-sm-12 col-lg-9 col-xl-10 content-area">
 
         <div class="card mb-3 mt-3 pt-3 pb-3 px-3 product-card-details">
@@ -213,5 +213,5 @@
     
 {% block postloadjs %}
 {{ block.super }}
-{% include 'includes/quantity_adjusting_script.html' %}
+{% include 'products/includes/quantity_adjusting_script.html' %}
 {% endblock %}
