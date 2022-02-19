@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cart_tools %}
 
 {% block extra_title %}Shopping Cart{% endblock %}
 
@@ -71,7 +72,7 @@
                                             <a class="update-link text-info float-end"><small>Update</small></a>
                                         </td>
                                         <td class="py-3 text-black-orange">
-                                            <p class="my-0">${{ item.product.price }}  <i class="fas fa-euro-sign"></i></p>
+                                            <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} <i class="fas fa-euro-sign"></i></p>
                                         </td>
                                     </tr>
                                 {% endfor %}
