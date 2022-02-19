@@ -112,7 +112,7 @@ header {
 
 .product-card {
     width: 80%;
-    height: 400px;
+    height: 450px;
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -151,7 +151,11 @@ header {
 
 th, td {
     border-bottom: 1px solid #ddd;
-  }
+}
+
+.quantity-input-field {
+    width: 200px;
+}
 
 
 /* Fixed sidebar for desktop */
@@ -221,7 +225,6 @@ th, td {
     }
     .product-card {
         width: 98%;
-        height: 350px;
         margin-left: 1%;
         margin-right: 1%;
     }
