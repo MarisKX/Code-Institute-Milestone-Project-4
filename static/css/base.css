@@ -229,12 +229,71 @@ th, td {
     height: 2px;
 }
 
+/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent; 
+    border-bottom: 20px solid black;
+    position: absolute;
+    top: -20px;
+    right: 85%;
+}
+
+/* Convenience classes - colors copied from Bootstrap */
+.arrow-primary {
+    border-bottom-color: #007bff !important;
+}
+
+.arrow-secondary {
+    border-bottom-color: #6c757d !important;
+}
+
+.arrow-success {
+    border-bottom-color: #28a745 !important;
+}
+
+.arrow-danger {
+    border-bottom-color: #dc3545 !important;
+}
+
+.arrow-warning {
+    border-bottom-color: #ffc107 !important;
+}
+
+.arrow-info {
+    border-bottom-color: #17a2b8 !important;
+}
+
+.arrow-light {
+    border-bottom-color: #f8f9fa !important;
+}
+
+.arrow-dark {
+    border-bottom-color: #343a40 !important;
+}
+
+.bag-notification-wrapper {
+    height: fit-content;
+    max-height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
     .container {
       max-width: 85%;
+    }
+}
+
+/* Adjusts arrow of message box for medium/large screens */
+@media (max-width: 1960px) {
+    .arrow-up {
+        right: 45%;
     }
 }
   
@@ -266,6 +325,9 @@ th, td {
         width: 98%;
         margin-left: 1%;
         margin-right: 1%;
+    }
+    .arrow-up {
+        right: 25%;
     }
 }
 
