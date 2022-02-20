@@ -91,7 +91,7 @@
                                             </span>
                                             <span class="text-uppercase">Return to webshop</span>
                                         </a>
-                                        <a href="" class="btn background-orange rounded-0 mb-5 mx-2 btn-lg">
+                                        <a href="{% url 'checkout' %}" class="btn background-orange rounded-0 mb-5 mx-2 btn-lg">
                                             <span class="text-uppercase">Secure Checkout</span>
                                             <span class="icon">
                                                 <i class="fas fa-lock"></i>
@@ -103,7 +103,7 @@
                         </div>
                     {% else %}
                         <p class="lead my-5 text-black-orange">Your shopping cart is empty.</p>
-                        <a href="{% url 'products' %}" class="btn background-white rounded-0 btn-lg">
+                        <a href="{% url 'products' %}" class="btn  background-orange rounded-0 btn-lg mb-5">
                             <span class="icon">
                                 <i class="fas fa-chevron-left"></i>
                             </span>

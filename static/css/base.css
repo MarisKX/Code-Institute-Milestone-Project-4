@@ -13,6 +13,12 @@ body {
     font-family: 'Domine', serif;
 }
 
+/* Changes checkbox colors */
+.form-check-input[type=checkbox]:checked {
+    background-color:rgb(250, 129, 0) !important;
+    border-color: rgb(112, 58, 0) !important;
+}
+
 header {
     background-color: rgb(250, 129, 0);
 }
@@ -95,6 +101,10 @@ header {
 
 .main-container {
     width: 99%;
+}
+
+.main-container-checkout {
+    width: 100%;
 }
 
 .sidenav-search-form {
@@ -181,6 +191,10 @@ th, td {
 .content-area {
     background: rgba(255,255,255, 0.8);
     margin-left: 17.5%;
+}
+
+.content-area-checkout {
+    background: rgba(255,255,255, 0.8);
 }
 
 .card.mb-3 {
