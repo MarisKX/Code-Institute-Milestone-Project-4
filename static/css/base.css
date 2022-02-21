@@ -182,6 +182,12 @@ th, td {
     width: 200px;
 }
 
+.order_line_divider {
+    height: 1px;
+    width: 80%;
+    margin-top: 20px;
+}
+
 
 /* Fixed sidebar for desktop */
 .main-side-navbar {
