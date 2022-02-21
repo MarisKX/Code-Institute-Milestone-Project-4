@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock %}
+
+{% block extra_title %}Order Completed{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="row main-container-checkout h-100">
+    <div class="col-sm-12 col-lg-2 col-xl-1 background-orange h-100"></div>
+    <div class="col-sm-12 col-lg-6 offset-lg-1 col-xl-8 offset-xl-1 content-area-checkout">
+        <div class="card product-card-details mb-3 mt-3 pt-3 pb-3 px-3">
+            <div class="row">
+                <div class="col">
+                    <hr>
+                    <h2 class="logo-font mb-4">Checkout Successfull!</h2>
+                    <hr>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12 col-lg-7"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-lg-2 offset-lg-1 col-xl-1 offset-xl-1 background-orange h-100"></div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+
+{% endblock %}
