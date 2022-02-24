@@ -1,3 +1,15 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import UserProfile
+
+
+class UserProdileAdmin(admin.ModelAdmin):
+    list_display = (
+        'user',
+        'default_email'
+    )
+
+    ordering = ('user',)
+
+
+admin.site.register(UserProfile, UserProdileAdmin)

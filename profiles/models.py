@@ -13,6 +13,7 @@ class UserProfile(models.Model):
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_phone_number = models.CharField(max_length=20, null=True, blank=True)
+    default_email = models.CharField(max_length=90, null=True, blank=True)
     default_country = CountryField(blank_label='Country *', null=True, blank=True)
     default_postcode = models.CharField(max_length=20, null=True, blank=True)
     default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
@@ -24,12 +25,12 @@ class UserProfile(models.Model):
         return self.user.username
 
 
-@receiver(post_save, sender=User)
-def create_or_update_user_profile(sender, instance, created, **kwargs):
+#@receiver(post_save, sender=User)
+#def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
     Create or update the user profile
     """
-    if created:
-        UserProfile.objects.create(user=instance)
+#    if created:
+#        UserProfile.objects.create(user=instance)
     # Existing users: just save the profile
-    instance.userprofile.save()
+#    instance.userprofile.save()
