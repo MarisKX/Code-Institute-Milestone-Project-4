@@ -111,9 +111,12 @@
                             <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
                             <!-- A Stripe card element will go here -->
                             <div class="mb-3" id="card-element"></div>
-    
+
                             <!-- Used to display form errors -->
                             <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+
+                            <!-- Pass the client secret to the view so it will be possible to get intent id -->
+                            <input type="hidden" value="{{ client_secret }}" name="client_secret">
                         </fieldset>
     
                         <div class="submit-button text-right mt-5 mb-2">                    
@@ -133,7 +136,7 @@
                                 <span class="icon">
                                     <i class="fas fa-exclamation-circle"></i>
                                 </span>
-                                <span>Your card will be charged <strong>{{ total|floatformat:2 }} Eur</strong></span>
+                                <span>Your card will be charged <strong>{{ order_total|floatformat:2 }} Eur</strong></span>
                             </p>
                         </div>
                     </form>

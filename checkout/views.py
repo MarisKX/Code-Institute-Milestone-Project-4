@@ -51,7 +51,11 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_cart = json.dumps(cart)
+            order.save()
             for item_id, item_data in cart.items():
                 try:
                     product = Product.objects.get(ean_code=item_id)
@@ -64,11 +68,11 @@ def checkout(request):
 
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
+                        "One of the products in your shoppinfg cart wasn't found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
-                    return redirect(reverse('view_bag'))
+                    return redirect(reverse('show_cart'))
 
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
@@ -82,9 +86,9 @@ def checkout(request):
             return redirect(reverse('products'))
 
         current_cart = cart_content(request)
-        total = current_cart['total']
+        order_total = current_cart['order_total']
 
-        stripe_total = round(total * 100)
+        stripe_total = round(order_total * 100)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,

@@ -20,7 +20,7 @@
                 <hr class="mt-1 mb-3">
             </div>
         </div>
-        {% if total %}
+        {% if order_total %}
             <div class="bag-notification-wrapper">
                 {% for item in cart_items %}
                     <div class="row">
@@ -39,7 +39,7 @@
                 <div class="col">
                     <strong>
                         <p class="mt-3 mb-1 text-black">Total: 
-                            <span class="float-right">{{ total|floatformat:2 }} Eur</span>
+                            <span class="float-right">{{ order_total|floatformat:2 }} Eur</span>
                         </p>
                     </strong>
                     <a href="{% url 'show_cart' %}" class="btn background-orange btn-block rounded-0">
