@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load static %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -13,7 +12,7 @@
 <div class="row main-container-checkout h-100">
     <div class="col-sm-12 col-lg-2 col-xl-1 background-orange h-100"></div>
     <div class="col-sm-12 col-lg-6 offset-lg-1 col-xl-8 offset-xl-1 content-area-checkout">
-        <div class="card product-card-details mb-3 mt-3 pt-3 pb-3 px-3">
+        <div class="card product-card-details mb-3 mt-3 pt-3 pb-3 px-3 allauth-form-inner-content">
             {% block inner_content %}
             {% endblock %}
         </div>
