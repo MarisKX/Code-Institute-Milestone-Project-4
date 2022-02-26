@@ -29,7 +29,55 @@
                 </div>
             </div>
         </div>
-        {{ profile }}
+        <div class="row">
+            <div class="col-12 col-lg-10 offset-lg-1 col-xl-4 offset-xl-1" id="update-delivery-info">
+                <h5 class="text-muted">Profile details</h5>
+                <div class="accordion-item">
+                    <p class="text-muted accordion-header" id="delivery-info">
+                        <button
+                            class="accordion-button btn rounded-0 collapsed"
+                            type="button"
+                            data-mdb-toggle="collapse"
+                            data-mdb-target="#default-delivery-form"
+                            aria-expanded="true"
+                            aria-controls="collapseOne"
+                            >
+                            Default Delivery Information
+                        </button>
+                    </p>
+                    <div id="default-delivery-form" class="accordion-collapse collapse show" aria-labelledby="delivery-info" data-mdb-parent="update-delivery-info">
+                        <form class="mt-3 accordion-body" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button class="btn background-orange rounded-0 text-uppercase float-right">Update Information</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-10 offset-lg-1 col-xl-6" id="order-history-section">
+                <h5 class="text-muted">Order History</h5>
+                {{ orders }}
+                {% for order in orders %}
+                <div class="accordion-item">
+                    <p class="text-muted accordion-header" id="order-history-item">
+                        <button
+                            class="accordion-button btn rounded-0 collapsed"
+                            type="button"
+                            data-mdb-toggle="collapse"
+                            data-mdb-target="#order-history-details"
+                            aria-expanded="true"
+                            aria-controls="collapseOne"
+                            >
+                            {{ order }}
+                        </button>
+                    </p>
+                    <div id="order-history-details" class="accordion-collapse collapse show" aria-labelledby="order-history-item" data-mdb-parent="order-history-section">
+                        
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
     <div class="col-sm-12 col-lg-2 offset-lg-1 col-xl-1 offset-xl-1 background-orange h-100"></div>
 </div>
@@ -38,4 +86,5 @@
 
 {% block postloadjs %}
     {{ block.super }}
+    <script type="text/javascript" src="{% static '/js/countryfield.js' %}"></script>
 {% endblock %}

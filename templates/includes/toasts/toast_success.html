@@ -20,7 +20,7 @@
                 <hr class="mt-1 mb-3">
             </div>
         </div>
-        {% if order_total %}
+        {% if order_total and not on_profile_page %}
             <div class="bag-notification-wrapper">
                 {% for item in cart_items %}
                     <div class="row">
