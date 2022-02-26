@@ -18,8 +18,8 @@
 
 {% block content %}
 <div class="row main-container-checkout h-100">
-    <div class="col-sm-12 col-lg-2 col-xl-1 background-orange h-100"></div>
-    <div class="col-sm-12 col-lg-6 offset-lg-1 col-xl-8 offset-xl-1 content-area-checkout">
+    <div class="col-sm-12 col-lg-1 background-orange h-100"></div>
+    <div class="col-sm-12 col-lg-8 offset-lg-1 content-area-checkout">
         <div class="card product-card-details mb-3 mt-3 pt-3 pb-3 px-3">
             <div class="row">
                 <div class="col">
@@ -71,7 +71,7 @@
                                 aria-expanded="false"
                                 aria-controls="details-{{ order.order_number|lower }}"
                                 >
-                                {{ order.order_number|truncatechars:10 }} | {{ order.date }}
+                                {{ order.order_number }} | {{ order.date|date }}
                             </button>
                         </p>
                         <div id="details-{{ order.order_number|lower }}" 
@@ -89,17 +89,21 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <a href="{% url 'order_history' order.order_number %}"
+                                            <a class="text-black-orange" href="{% url 'order_history' order.order_number %}"
                                             title="{{ order.order_number }}">
-                                                {{ order.order_number|truncatechars:6 }}
+                                                {{ order.order_number|truncatechars:12 }}
                                             </a>
                                         </td>
-                                        <td>{{ order.date }}</td>
+                                        <td>{{ order.date|date }}</td>
                                         <td>
                                             <ul class="list-unstyled">
                                                 {% for item in order.lineitems.all %}
-                                                    <li class="small">
-                                                        {{ item.product.name }} x{{ item.quantity }}
+                                                    <li>
+                                                        <a class="text-black-orange" 
+                                                            href="{% url 'product_details' item.product.ean_code %}"
+                                                            title="{{ item.product.name }}">
+                                                            {{ item.product.name }} x{{ item.quantity }}
+                                                        </a>
                                                     </li>
                                                 {% endfor %}
                                             </ul>
@@ -120,7 +124,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-12 col-lg-2 offset-lg-1 col-xl-1 offset-xl-1 background-orange h-100"></div>
+    <div class="col-sm-12 col-lg-1 offset-lg-1 background-orange h-100"></div>
 </div>
 
 {% endblock %}
