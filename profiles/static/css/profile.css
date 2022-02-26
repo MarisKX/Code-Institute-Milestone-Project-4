@@ -10,15 +10,15 @@
     width: 95%;
 }
 
-.accordion-button, .collapsed {
+.accordion-button {
     color: black;
     background-color: rgb(250, 129, 0);
     box-shadow: none;
 }
 
 .accordion-button:not(.collapsed) {
-    color: rgb(250 129 0);
-    background-color: transparent;
+    color: black;
+    background-color: rgb(250, 129, 0);
     box-shadow: none;
 }
 
@@ -41,6 +41,10 @@
 
 #id_default_country option:first-child {
     color: #aab7c4;
+}
+
+.w-95 {
+    width: 95%;
 }
 
 @media (max-width: 1200px) {
