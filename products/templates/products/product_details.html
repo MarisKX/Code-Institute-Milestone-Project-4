@@ -18,7 +18,7 @@
 
         <div class="card mb-3 mt-3 pt-3 pb-3 px-3 product-card-details">
             <div class="row g-0">
-              <div class="col-md-4">
+              <div class="col-md-3">
                 {% if product.image %}
                     <a class="product-image-link" href="{{ product.image.url }}" target="_blank">
                         <img class="card-img-top img-fluid product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -29,7 +29,7 @@
                     </a>
                 {% endif %}
               </div>
-              <div class="col-md-8 px-3">
+              <div class="col-md-7 px-3">
                 <div class="card-body">
                   <h3 class="card-title">
                     <strong>
@@ -91,6 +91,14 @@
 
                 </div>
               </div>
+              {% if request.user.is_superuser %}
+                <div class="col-md-2">
+                  <small>
+                    <a href="{% url 'update_product' product.ean_code %}">Update</a> | 
+                    <a class="text-danger" href="{% url 'delete_product' product.ean_code %}">Delete</a>
+                  </small>
+                </div>
+              {% endif %}
             </div>
             <div class="product-detail-divider background-black-orange"></div>
             <div class="row mt-5 mb-3 mx-3">
