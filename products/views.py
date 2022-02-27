@@ -5,7 +5,8 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, Category, Manufacturer, TyreSize
-from django.conf import settings
+
+from .forms import ProductForm
 
 # Create your views here.
 
@@ -166,3 +167,26 @@ def product_details(request, ean_code):
     }
 
     return render(request, 'products/product_details.html', context)
+
+
+def add_product(request):
+    """ Add a product to the store """
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added product!')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+    else:
+        form = ProductForm()
+    form = ProductForm()
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+        'on_profile_page': True
+    }
+
+    return render(request, template, context)

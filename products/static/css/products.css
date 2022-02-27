@@ -1,0 +1,45 @@
+.form-control:focus {
+    border-color: rgb(250, 129, 0);
+    box-shadow: inset 0 0 0 1px rgb(250 129 0);
+}
+
+.select-input.focused~.form-notch .form-notch-leading {
+    border-top: 2px solid rgb(250 129 0);
+    border-bottom: 2px solid rgb(250 129 0);
+    border-left: 2px solid rgb(250 129 0);
+}
+
+.select-input.focused~.form-notch .form-notch-middle {
+    border-bottom: 2px solid;
+    border-color: rgb(250 129 0);
+    transition: all .2s linear;
+}
+
+.select-input.focused~.form-notch .form-notch-trailing {
+    border-color: rgb(250 129 0);
+    border-bottom: 2px solid rgb(250 129 0);
+    border-right: 2px solid rgb(250 129 0);
+    border-top: 2px solid rgb(250 129 0);
+    transition: all .2s linear;
+}
+
+.form-outline .form-control:focus~.form-notch .form-notch-leading {
+    border-top: 0.125rem solid rgb(250 129 0);
+    border-bottom: 0.125rem solid rgb(250 129 0);
+    border-left: 0.125rem solid rgb(250 129 0);
+}
+
+.form-outline .form-control:focus~.form-notch .form-notch-middle {
+    border-top: 0.125rem solid rgb(250 129 0);
+    border-bottom: 0.125rem solid rgb(250 129 0);
+}
+
+.form-outline .form-control:focus~.form-notch .form-notch-trailing {
+    border-top: 0.125rem solid rgb(250 129 0);
+    border-bottom: 0.125rem solid rgb(250 129 0);
+    border-right: 0.125rem solid rgb(250 129 0);
+}
+
+.select-input.focused~.select-arrow {
+    color: rgb(250 129 0);
+}

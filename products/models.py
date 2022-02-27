@@ -31,6 +31,7 @@ class Manufacturer(models.Model):
     def get_display_name(self):
         return self.display_name
 
+
 class TyreSize(models.Model):
     width = models.PositiveIntegerField(default=125, validators=[MinValueValidator(125), MaxValueValidator(345)])
     heigth = models.PositiveIntegerField(default=55, validators=[MinValueValidator(25), MaxValueValidator(80)])

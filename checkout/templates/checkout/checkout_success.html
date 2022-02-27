@@ -87,6 +87,7 @@
                                         <p class="mb-0">{{ item.product.price }}</p>
                                     </div>
                                 </div>
+                            </div>
                             {% endfor %}
                             <div class="order-line-divider background-black-orange"></div>
                             <div class="row">
@@ -190,28 +191,27 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-lg-7 text-right">
-                    {% if from_profile %}
-                        <a href="{% url 'profile' %}" class="btn background-orange rounded-0 my-2">
-                            <span class="icon mr-2">
-                                <i class="fas fa-angle-left"></i>
-                            </span>
-                            <span class="text-uppercase">Back to Profile</span>
-                        </a>
-                    {% else %}
-                        <a href="{% url 'products' %}" class="btn background-orange rounded-0 my-2">
-                            <span class="icon mr-2">
-                                <i class="fas fa-gifts"></i>
-                            </span>
-                            <span class="text-uppercase">Need more tires?</span>
-                        </a>
-                    {% endif %}
+                <div class="row">
+                    <div class="col-12 col-lg-7 text-right">
+                        {% if from_profile %}
+                            <a href="{% url 'profile' %}" class="btn background-orange rounded-0 my-2">
+                                <span class="icon mr-2">
+                                    <i class="fas fa-angle-left"></i>
+                                </span>
+                                <span class="text-uppercase">Back to Profile</span>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'products' %}" class="btn background-orange rounded-0 my-2">
+                                <span class="icon mr-2">
+                                    <i class="fas fa-gifts"></i>
+                                </span>
+                                <span class="text-uppercase">Need more tires?</span>
+                            </a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
         <div class="col-sm-12 col-lg-2 offset-lg-1 col-xl-1 offset-xl-1 background-orange h-100"></div>
     </div>
 {% endblock %}
