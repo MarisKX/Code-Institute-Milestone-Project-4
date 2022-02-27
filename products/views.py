@@ -190,3 +190,28 @@ def add_product(request):
     }
 
     return render(request, template, context)
+
+
+def update_product(request, ean_code):
+    """ Edit a product in the store """
+    product = get_object_or_404(Product, ean_code=ean_code)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated product!')
+            return redirect(reverse('product_details', args=[product.ean_code]))
+        else:
+            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+    else:
+        form = ProductForm(instance=product)
+        messages.info(request, f'You are editing {product.name} with code {product.ean_code}')
+
+    template = 'products/update_product.html'
+    context = {
+        'form': form,
+        'product': product,
+        'on_profile_page': True
+    }
+
+    return render(request, template, context)
