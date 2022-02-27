@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-jb21$g8uz1yiqotf)#c5i$xzml50f^uve^2!i46#%ty__tas(g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['code-institute-milestone-p4.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -136,16 +136,17 @@ WSGI_APPLICATION = 'wheelshop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-
-DATABASES = {
-    'default': dj_database_url.parse("postgres://qqrbftcqtraivm:1d845f598ff1ca7e90cfd6bdae923066910fb21299cfabd3650cb278b1df7555@ec2-54-195-76-73.eu-west-1.compute.amazonaws.com:5432/dd1g42kh7lqu5v")
-}
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
